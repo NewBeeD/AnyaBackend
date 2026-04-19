@@ -548,6 +548,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Date: Schema.Attribute.DateTime;
     Description: Schema.Attribute.Text;
+    EndDate: Schema.Attribute.DateTime;
     EventCategory: Schema.Attribute.Enumeration<
       ['youth', 'conference', 'workshop', 'church', 'prayer', 'other']
     >;
@@ -601,6 +602,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
       Schema.Attribute.Private;
     Location: Schema.Attribute.String;
+    Ministries: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     RegisteredCount: Schema.Attribute.Integer;
     RegistrationLink: Schema.Attribute.String;

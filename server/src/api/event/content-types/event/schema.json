@@ -18,6 +18,12 @@
     "Date": {
       "type": "datetime"
     },
+    "EndDate": {
+      "type": "datetime"
+    },
+    "Ministries": {
+      "type": "string"
+    },
     "Church": {
       "type": "string"
     },
@@ -146,7 +152,9 @@
       "type": "enumeration",
       "enum": [
         "Dominica",
-        "Barbados"
+        "Barbados",
+        "All",
+        "Virtual"
       ]
     }
   }
