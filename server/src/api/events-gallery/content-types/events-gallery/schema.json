@@ -1,0 +1,102 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events_galleries",
+  "info": {
+    "singularName": "events-gallery",
+    "pluralName": "events-galleries",
+    "displayName": "Events Gallery"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "EventDate": {
+      "type": "date",
+      "required": true
+    },
+    "EndDate": {
+      "type": "date"
+    },
+    "EventType": {
+      "type": "enumeration",
+      "enum": [
+        "Conference",
+        "Worship",
+        "Youth",
+        "Leadership",
+        "Community",
+        "Mission",
+        "Camp Meeting",
+        "Retreat",
+        "Workshop",
+        "Evangelism",
+        "Other"
+      ],
+      "required": true
+    },
+    "Location": {
+      "type": "string"
+    },
+    "Venue": {
+      "type": "string"
+    },
+    "Country": {
+      "type": "enumeration",
+      "enum": [
+        "Dominica",
+        "Barbados",
+        "Both"
+      ],
+      "required": true
+    },
+    "Images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "required": true
+    },
+    "CoverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Tags": {
+      "type": "json"
+    },
+    "Speakers": {
+      "type": "json"
+    },
+    "AttendeesCount": {
+      "type": "integer"
+    },
+    "Featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "HostChurch": {
+      "type": "string"
+    },
+    "Photographer": {
+      "type": "string"
+    },
+    "VideoLinks": {
+      "type": "json"
+    }
+  }
+}

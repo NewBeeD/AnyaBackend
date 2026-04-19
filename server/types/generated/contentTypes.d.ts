@@ -619,6 +619,68 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiEventsGalleryEventsGallery
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'events_galleries';
+  info: {
+    displayName: 'Events Gallery';
+    pluralName: 'events-galleries';
+    singularName: 'events-gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AttendeesCount: Schema.Attribute.Integer;
+    Country: Schema.Attribute.Enumeration<['Dominica', 'Barbados', 'Both']> &
+      Schema.Attribute.Required;
+    CoverImage: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    EndDate: Schema.Attribute.Date;
+    EventDate: Schema.Attribute.Date & Schema.Attribute.Required;
+    EventType: Schema.Attribute.Enumeration<
+      [
+        'Conference',
+        'Worship',
+        'Youth',
+        'Leadership',
+        'Community',
+        'Mission',
+        'Camp Meeting',
+        'Retreat',
+        'Workshop',
+        'Evangelism',
+        'Other',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    HostChurch: Schema.Attribute.String;
+    Images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::events-gallery.events-gallery'
+    > &
+      Schema.Attribute.Private;
+    Location: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    Photographer: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Slug: Schema.Attribute.UID<'Name'>;
+    Speakers: Schema.Attribute.JSON;
+    Tags: Schema.Attribute.JSON;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Venue: Schema.Attribute.String;
+    VideoLinks: Schema.Attribute.JSON;
+  };
+}
+
 export interface ApiSermonSermon extends Struct.CollectionTypeSchema {
   collectionName: 'sermons';
   info: {
@@ -1226,6 +1288,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
       'api::event.event': ApiEventEvent;
+      'api::events-gallery.events-gallery': ApiEventsGalleryEventsGallery;
       'api::sermon.sermon': ApiSermonSermon;
       'api::tag.tag': ApiTagTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;
