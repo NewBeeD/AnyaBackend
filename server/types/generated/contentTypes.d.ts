@@ -542,7 +542,9 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     ContactPhone: Schema.Attribute.String;
     CostAmount: Schema.Attribute.Decimal;
     CostType: Schema.Attribute.Enumeration<['Free', 'Paid']>;
-    Country: Schema.Attribute.Enumeration<['Dominica', 'Barbados']>;
+    Country: Schema.Attribute.Enumeration<
+      ['Dominica', 'Barbados', 'All', 'Virtual']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
