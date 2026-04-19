@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tags",
+  "info": {
+    "singularName": "tag",
+    "pluralName": "tags",
+    "displayName": "Tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name"
+    },
+    "TagType": {
+      "type": "enumeration",
+      "enum": [
+        "Doctrine & Theology",
+        "Adventist-Specific",
+        "Prophecy & End Times",
+        "Health & Wellness",
+        "Family & Relationships",
+        "Youth & Young Adults",
+        "Community & Service",
+        "Lifestyle & Christian Living",
+        "Testimony & Personal Stories",
+        "Event-Specific",
+        "Cultural & Local Context",
+        "Sermon & Teaching"
+      ]
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

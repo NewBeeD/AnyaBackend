@@ -1,0 +1,153 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Date": {
+      "type": "datetime"
+    },
+    "Church": {
+      "type": "string"
+    },
+    "Location": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    },
+    "EventCategory": {
+      "type": "enumeration",
+      "enum": [
+        "youth",
+        "conference",
+        "workshop",
+        "church",
+        "prayer",
+        "other"
+      ]
+    },
+    "EventType": {
+      "type": "enumeration",
+      "enum": [
+        "Adventist Chaplaincy Ministries",
+        "Family Life Ministries",
+        "Personal Ministries",
+        "Adventist Disaster Relief Agency",
+        "Health Ministries",
+        "Prayer Ministries",
+        "Adventist Possibility Ministries",
+        "Ministerial Association",
+        "Publishing Ministries",
+        "Adventist-laymen's Services & Industries",
+        "Ministerial Secretary",
+        "Spirit of Prophecy",
+        "Children & Adolescent Ministries",
+        "Men's Ministries",
+        "Sabbath School",
+        "Communications",
+        "Public affairs & Religious Liberty",
+        "Stewardship Ministries ",
+        "Community Services",
+        "Public Campus Ministries",
+        "Woman's Ministries ",
+        "Education",
+        "Planned Giving and Trust Services",
+        "Youth Ministries ",
+        "Spiritual Growth",
+        "Discipleship",
+        "Bible Knowledge",
+        "Apologetics & Doctrine",
+        "Leadership Development",
+        "Fellowship & Social",
+        "Community Outreach",
+        "Evangelism & Mission",
+        "Health & Lifestyle",
+        "Life Skills & Career Development",
+        "Creative Arts & Talents",
+        "Recreation & Sports",
+        "Stewardship & Service",
+        "Identity & Purpose",
+        "Technology & Media Ministry",
+        "Adventist Heritage & Beliefs"
+      ]
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Featured": {
+      "type": "boolean"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "RegistrationRequired": {
+      "type": "boolean"
+    },
+    "RegistrationLink": {
+      "type": "string"
+    },
+    "TargetAudience": {
+      "type": "string"
+    },
+    "AgeGroup": {
+      "type": "string"
+    },
+    "CostType": {
+      "type": "enumeration",
+      "enum": [
+        "Free",
+        "Paid"
+      ]
+    },
+    "CostAmount": {
+      "type": "decimal"
+    },
+    "ContactPerson": {
+      "type": "string"
+    },
+    "ContactEmail": {
+      "type": "email"
+    },
+    "ContactPhone": {
+      "type": "string"
+    },
+    "Speakers": {
+      "type": "json"
+    },
+    "Capacity": {
+      "type": "integer"
+    },
+    "RegisteredCount": {
+      "type": "integer"
+    },
+    "Tags": {
+      "type": "json"
+    },
+    "Country": {
+      "type": "enumeration",
+      "enum": [
+        "Dominica",
+        "Barbados"
+      ]
+    }
+  }
+}

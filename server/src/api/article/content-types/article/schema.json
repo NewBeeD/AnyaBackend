@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Content": {
+      "type": "blocks"
+    },
+    "ReadingTime": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Featured": {
+      "type": "boolean"
+    },
+    "Author": {
+      "type": "string"
+    },
+    "AuthorRole": {
+      "type": "string"
+    },
+    "Church": {
+      "type": "string"
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Doctrine",
+        "Lifestyle",
+        "Family",
+        "Health",
+        "Prophecy",
+        "Testimony",
+        "Youth",
+        "Community"
+      ]
+    },
+    "Scripture": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Tags": {
+      "type": "json"
+    },
+    "ViewCount": {
+      "type": "integer"
+    },
+    "LikeCount": {
+      "type": "integer"
+    },
+    "CommentCount": {
+      "type": "integer"
+    }
+  }
+}

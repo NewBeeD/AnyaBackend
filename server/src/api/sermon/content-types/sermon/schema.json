@@ -1,0 +1,109 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sermons",
+  "info": {
+    "singularName": "sermon",
+    "pluralName": "sermons",
+    "displayName": "Sermon"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Content": {
+      "type": "blocks"
+    },
+    "ReadingTime": {
+      "type": "string"
+    },
+    "Preacher": {
+      "type": "string"
+    },
+    "Church": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Scripture": {
+      "type": "string"
+    },
+    "Series": {
+      "type": "string"
+    },
+    "SeriesPart": {
+      "type": "integer"
+    },
+    "Language": {
+      "type": "enumeration",
+      "enum": [
+        "English",
+        "Spanish",
+        "French",
+        "Creole"
+      ]
+    },
+    "Format": {
+      "type": "enumeration",
+      "enum": [
+        "Article",
+        "Transcript",
+        "Outline",
+        "Study Guide"
+      ]
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "AudioFile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "PDFFile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Tag": {
+      "type": "json"
+    },
+    "ViewCount": {
+      "type": "integer"
+    },
+    "LikeCount": {
+      "type": "integer"
+    },
+    "DownloadCount": {
+      "type": "integer"
+    }
+  }
+}
