@@ -1,9 +1,3 @@
-databases:
-  - name: strapi-db
-    plan: free
-    databaseName: strapi
-    user: strapi
-
 services:
   - type: web
     name: strapi-backend
@@ -17,13 +11,11 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_CLIENT
-        value: postgres
+        sync: false
       - key: DATABASE_URL
-        fromDatabase:
-          name: strapi-db
-          property: connectionString
+        sync: false
       - key: DATABASE_SSL
-        value: true
+        sync: false
       - key: APP_KEYS
         generateValue: true
       - key: API_TOKEN_SALT
