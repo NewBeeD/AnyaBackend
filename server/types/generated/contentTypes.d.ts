@@ -522,6 +522,106 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiChurchProgramChurchProgram
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'church_programs';
+  info: {
+    description: 'Special programs that churches host for visitors and members';
+    displayName: 'Church Program';
+    pluralName: 'church-programs';
+    singularName: 'church-program';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ChurchAddress: Schema.Attribute.String;
+    ContactEmail: Schema.Attribute.Email;
+    ContactPerson: Schema.Attribute.String;
+    ContactPhone: Schema.Attribute.String;
+    Cost: Schema.Attribute.Decimal;
+    Country: Schema.Attribute.Enumeration<['dominica', 'barbados', 'both']> &
+      Schema.Attribute.Required;
+    CoverImage: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.RichText & Schema.Attribute.Required;
+    EndDate: Schema.Attribute.Date;
+    EndTime: Schema.Attribute.Time;
+    ExpectedAttendance: Schema.Attribute.Integer;
+    Featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    Gallery: Schema.Attribute.Media<'images', true>;
+    HostChurch: Schema.Attribute.String & Schema.Attribute.Required;
+    IsFree: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    IsRecurring: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    IsVirtual: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    LiveStreamLink: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::church-program.church-program'
+    > &
+      Schema.Attribute.Private;
+    Ministries: Schema.Attribute.String;
+    ProgramDate: Schema.Attribute.Date & Schema.Attribute.Required;
+    ProgramType: Schema.Attribute.Enumeration<
+      [
+        'worship_service',
+        'prayer_meeting',
+        'bible_study',
+        'youth_program',
+        'childrens_program',
+        'health_seminar',
+        'evangelistic_series',
+        'concert',
+        'community_service',
+        'workshop',
+        'retreat',
+        'camp_meeting',
+        'special_service',
+        'other',
+      ]
+    > &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    RecurrencePattern: Schema.Attribute.Enumeration<
+      ['weekly', 'bi-weekly', 'monthly', 'quarterly', 'annually']
+    >;
+    Region: Schema.Attribute.String;
+    RegistrationLink: Schema.Attribute.String;
+    RegistrationRequired: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    ShortDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+    Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
+    Speakers: Schema.Attribute.JSON;
+    StartTime: Schema.Attribute.Time;
+    Tags: Schema.Attribute.JSON;
+    TargetAudience: Schema.Attribute.Enumeration<
+      [
+        'all_ages',
+        'youth',
+        'children',
+        'adults',
+        'seniors',
+        'families',
+        'men',
+        'women',
+        'singles',
+        'couples',
+      ]
+    > &
+      Schema.Attribute.DefaultTo<'all_ages'>;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
@@ -772,6 +872,73 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
+  collectionName: 'team_members';
+  info: {
+    description: 'ANYA leadership team members and executives';
+    displayName: 'Team Member';
+    pluralName: 'team-members';
+    singularName: 'team-member';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Bio: Schema.Attribute.RichText;
+    Church: Schema.Attribute.String;
+    Country: Schema.Attribute.Enumeration<['dominica', 'barbados', 'both']> &
+      Schema.Attribute.DefaultTo<'dominica'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Department: Schema.Attribute.Enumeration<
+      [
+        'executive_leadership',
+        'vice_presidents',
+        'secretarial_team',
+        'finance_team',
+        'chaplaincy',
+        'education_department',
+        'uniform_club_leaders',
+        'fundraising_team',
+        'public_relations_team',
+        'social_cultural_team',
+        'music_ministry',
+        'health_ministry',
+        'other',
+      ]
+    > &
+      Schema.Attribute.Required;
+    DepartmentDescription: Schema.Attribute.Text;
+    DisplayOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    Email: Schema.Attribute.Email;
+    Expertise: Schema.Attribute.JSON;
+    IsActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    JoinedDate: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-member.team-member'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    Phone: Schema.Attribute.String;
+    Photo: Schema.Attribute.Media<'images'>;
+    publishedAt: Schema.Attribute.DateTime;
+    Role: Schema.Attribute.String & Schema.Attribute.Required;
+    ShortBio: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    Slug: Schema.Attribute.UID<'Name'>;
+    SocialLinks: Schema.Attribute.JSON;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    YearsOfService: Schema.Attribute.Integer;
   };
 }
 
@@ -1287,10 +1454,12 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
+      'api::church-program.church-program': ApiChurchProgramChurchProgram;
       'api::event.event': ApiEventEvent;
       'api::events-gallery.events-gallery': ApiEventsGalleryEventsGallery;
       'api::sermon.sermon': ApiSermonSermon;
       'api::tag.tag': ApiTagTag;
+      'api::team-member.team-member': ApiTeamMemberTeamMember;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
